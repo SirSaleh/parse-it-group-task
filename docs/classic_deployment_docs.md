@@ -2,6 +2,19 @@
 
 ## Basic Requirements
 
+install build tools:
+
+```
+sudo apt-get update
+sudo apt-get install build-essential autoconf libtool pkg-config
+```
+
+
+```
+sudo apt-get install python3-pip
+pip3 install --upgrade pip setuptools
+```
+
 Run milvus service in docker:
 
 ```bash
