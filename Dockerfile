@@ -3,10 +3,11 @@ FROM python:3.9
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+RUN python -c "from transformers import BertTokenizer, BertModel; BertTokenizer.from_pretrained('bert-base-uncased'); BertModel.from_pretrained('bert-base-uncased')"
 
-EXPOSE 8000
+COPY . .
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
