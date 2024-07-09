@@ -1,11 +1,12 @@
-from transformers import pipeline
-from rag_app.config.settings import settings
+from transformers import BertTokenizer, BertModel
+import torch
 
 class NLPModel:
-    def __init__(self):
-        self.generator = pipeline("text-generation", model=settings.NLP_MODEL_PATH)
-
-    def generate_response(self, context: str, query: str):
-        prompt = f"Context: {context}\nQuery: {query}\nAnswer:"
-        result = self.generator(prompt, max_length=50, num_return_sequences=1)
-        return result[0]["generated_text"].split("Answer:")[1].strip()
+    def __init__(self, model_name='bert-base-uncased'):
+        self.tokenizer = BertTokenizer.from_pretrained(model_name)
+        self.model = BertModel.from_pretrained(model_name)
+        
+    def encode(self, text):
+        inputs = self.tokenizer(text, return_tensors='pt', padding=True, truncation=True, max_length=128)
+        outputs = self.model(**inputs)
+        return outputs.last_hidden_state.mean(dim=1).detach().numpy().flatten()
