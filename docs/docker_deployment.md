@@ -19,6 +19,12 @@ sudo docker run -d --name rag-app  -p 8000:8000 rag-app
 sudo docker logs rag-app 
 ```
 
+**Note**: You can logs in real time you can use -f flag:
+
+```bash
+sudo docker logs -f rag-app
+```
+
 ## stop
 
 ```bash
