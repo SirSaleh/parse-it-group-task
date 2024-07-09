@@ -3,7 +3,7 @@ from rag_app.views import text_view, rag_view # TODO add these in futre ,audio_v
 
 app = FastAPI()
 
-app.include_router(text_view.router, prefix="/text")
+app.include_router(text_view.router, prefix="/texts")
 app.include_router(rag_view.router, prefix="/rag")
 
 # TODO: Add theses in FUTURE
