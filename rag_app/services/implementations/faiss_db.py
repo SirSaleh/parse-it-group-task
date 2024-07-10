@@ -11,6 +11,7 @@ class FAISSDatabase(VectorDatabaseInterface):
 
     def add_vector(self, vector: List[float], text: str):
         vector_np = np.array([vector], dtype=np.float32)
+        assert vector_np.shape[1] == self.dimension, f"Vector dimension {vector_np.shape[1]} does not match index dimension {self.dimension}"
         self.index.add(vector_np)
         self.texts.append(text)
 

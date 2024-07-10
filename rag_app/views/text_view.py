@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 from rag_app.controllers.text_controller import TextController
 from rag_app.services.implementations.faiss_db import FAISSDatabase
-from rag_app.services.nlp.nlp_model import NLPModel
 
 router = APIRouter()
 
@@ -14,11 +13,7 @@ class QuerySchema(BaseModel):
     query: str
     k: int
 
-# Initialize FAISS with a dimension
-dimension = 768  # BERT's output dimension
-faiss_instance = FAISSDatabase(dimension=dimension)
-nlp_model = NLPModel()
-controller = TextController(db=faiss_instance, nlp_model=nlp_model)
+controller = TextController()
 
 @router.post("/")
 async def add_text_data(text_data: TextDataSchema):
