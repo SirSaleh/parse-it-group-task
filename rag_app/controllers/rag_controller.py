@@ -11,7 +11,8 @@ class RAGController:
         self.nlp_model = NLPModel()
 
     def retrieve_and_generate(self, query: str, k: int):
-        text_results = self.text_db.search(query, k)
+        query_vector = self.nlp_model.encode(query)
+        text_results = self.text_db.search(query_vector, k)
         # TODO: add same for audio and other datatypes in future
         response = self.nlp_model.generate_response(text_results, query)
         
