@@ -21,7 +21,6 @@ class NLPModel:
     def generate_response(self, results, query):
 
         if results:
-            return f"The most similar results to '{query}' \
-                which is your query are '{self.str_from_list(results)}'."
+            return f"The most similar results to '{query}' are '{self.str_from_list(results)}' respectively."
         else:
             return f"No similar results found for '{query}'."
