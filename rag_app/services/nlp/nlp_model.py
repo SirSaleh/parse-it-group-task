@@ -10,3 +10,18 @@ class NLPModel:
         inputs = self.tokenizer(text, return_tensors='pt', padding=True, truncation=True, max_length=128)
         outputs = self.model(**inputs)
         return outputs.last_hidden_state.mean(dim=1).detach().numpy().flatten()
+    
+    @staticmethod
+    def str_from_list(results):
+        if len(results) > 1:
+            return ", ".join(results[:-1]) + ", and " + results[-1]
+        else:
+            return results[0]
+
+    def generate_response(self, results, query):
+
+        if results:
+            return f"The most similar results to '{query}' \
+                which is your query are '{self.str_from_list(results)}'."
+        else:
+            return f"No similar results found for '{query}'."
