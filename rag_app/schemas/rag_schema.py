@@ -1,4 +1,3 @@
-from typing import List
 from pydantic import BaseModel
 
 class QuerySchema(BaseModel):
@@ -6,4 +5,4 @@ class QuerySchema(BaseModel):
     k: int = 4
 
 class ResponseSchema(BaseModel):
-    responses: List[str]
+    response: str

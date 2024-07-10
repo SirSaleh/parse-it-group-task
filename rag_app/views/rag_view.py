@@ -9,4 +9,4 @@ controller = RAGController()
 @router.post("/query/", response_model=ResponseSchema)
 async def query_rag_system(query: QuerySchema):
     response = controller.retrieve_and_generate(query.query, query.k)
-    return {"responses": [response]}
+    return {"response": response}
