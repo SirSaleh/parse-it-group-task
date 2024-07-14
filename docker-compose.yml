@@ -23,6 +23,20 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+  
+  test:
+    build: .
+    container_name: my-fastapi-tests
+    command: ["pytest", "tests/"]
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-DB_NAME}
+      POSTGRES_USER: ${POSTGRES_USER:-POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-POSTGRES_PASSWORD}
+      POSTGRES_HOST: db
+      PYTHONPATH: /app
+    depends_on:
+      - db
+      - web
 
 volumes:
   pgdata:

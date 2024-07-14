@@ -10,4 +10,6 @@ RUN python -c "from transformers import BertTokenizer, BertModel; BertTokenizer.
 
 COPY . .
 
+ENV PYTHONPATH=/app
+
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
