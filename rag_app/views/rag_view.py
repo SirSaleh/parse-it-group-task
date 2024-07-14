@@ -8,5 +8,7 @@ controller = RAGController()
 
 @router.get("/query/", response_model=ResponseSchema)
 async def query_rag_system(query: str, k: int= 1):
+    """generates response for RAG system
+    """
     response = controller.retrieve_and_generate(query, k)
     return {"response": response}
