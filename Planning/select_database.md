@@ -9,7 +9,7 @@
 * **FAISS**
     * pros: Pros: Fast and efficient for in-memory operations.
     * Cons: There is no built-in persistence and metadata management. Requires integration with other databases (like postgreSQL) for full functionality.
-* **Milvus**L
+* **Milvus**
     * Pros: Combines in-memory and on-disk storage, supports distributed deployment, and integrates well with other databases for metadata.
     * Cons: Requires setup and management of the infrastructure.
 * **Pinecone**
