@@ -1,10 +1,12 @@
 # parse-it-group-task
 
-This repository contains my solution for BitPin ASSESMENT Task
+This repository contains my solution for ParsIT company ASSESMENT Task
 
 Swagger docs are available at `/docs` path. (local default: [127.0.0.1:8000/docs](127.0.0.1:8000/docs))
 
 # Table of Contents
+
+Docs for this project are available in `/docs` and `/planning` directories and also listed in the table below:
 
 | title | description |
 | ----- | ----------- |
