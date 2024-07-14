@@ -1,4 +1,3 @@
-# rag_app/controllers/text_controller.py
 from rag_app.services.factories.db_factory import DatabaseFactory
 from rag_app.services.nlp.nlp_model import NLPModel
 from rag_app.utils.controller_utils import get_db_search_or_empty

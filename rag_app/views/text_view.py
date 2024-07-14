@@ -1,8 +1,6 @@
-from fastapi import APIRouter, HTTPException, Response
-from pydantic import BaseModel
+from fastapi import APIRouter, HTTPException
 
 from rag_app.controllers.text_controller import TextController
-from rag_app.services.implementations.faiss_db import FAISSDatabase
 from rag_app.schemas.text_schema import TextDataSchema
 
 router = APIRouter()
