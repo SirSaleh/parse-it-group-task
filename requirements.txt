@@ -6,3 +6,5 @@ faiss-cpu==1.8.0.post1
 transformers
 torch
 psycopg2
+pytest
+httpx
